@@ -52,8 +52,8 @@ class LoginViewController: UIViewController {
         let photosViewController = UINavigationController(rootViewController: PhotosViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         let controllers = [friendsViewController, groupsViewController, photosViewController]
-        for element in controllers {
-            element.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 25.0, weight: .regular)], for: .normal)
+        for controller in controllers {
+            controller.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 25.0, weight: .regular)], for: .normal)
         }
         
         tabBarController.viewControllers = controllers
