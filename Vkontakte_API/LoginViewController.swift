@@ -63,6 +63,14 @@ class LoginViewController: UIViewController {
         photosViewController.tabBarItem = UITabBarItem(title: "Фото", image: UIImage(systemName: "photo"), tag: 2)
         
         navigationController?.pushViewController(tabBarController, animated: true)
+        
+        ///После перехода уже невозможно будет перейти назад на LoginViewController
+        guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let firstWindow = firstScene.windows.first else {
+            return
+        }
+        
+        firstWindow.rootViewController = tabBarController
     }
 }
 
