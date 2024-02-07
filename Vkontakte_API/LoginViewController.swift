@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         groupsViewController.tabBarItem = UITabBarItem(title: "Группы", image: UIImage(systemName: "person.2.fill"), tag: 1)
         photosViewController.tabBarItem = UITabBarItem(title: "Фото", image: UIImage(systemName: "photo"), tag: 2)
         
-        navigationController?.pushViewController(tabBarController, animated: true)
+        //navigationController?.pushViewController(tabBarController, animated: true)
         
         ///После перехода уже невозможно будет перейти назад на LoginViewController
         guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
