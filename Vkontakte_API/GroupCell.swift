@@ -9,12 +9,7 @@ import UIKit
 
 class GroupCell: UITableViewCell {
     
-    private let groupImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 25
-        imageView.backgroundColor = .purple
-        return imageView
-    }()
+    private let groupImageView = UIImageView(image: UIImage(systemName: "person"))
     
     private let nameLabel: UILabel = {
         let label = UILabel()

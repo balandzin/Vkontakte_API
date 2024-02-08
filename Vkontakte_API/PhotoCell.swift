@@ -9,12 +9,7 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
-    private let photoImageView: UIImageView = {
-        let photo = UIImageView()
-        photo.backgroundColor = .green
-        
-        return photo
-    }()
+    private let photoImageView = UIImageView(image: UIImage(systemName: "person"))
     
     override init (frame: CGRect) {
         super.init (frame: frame)

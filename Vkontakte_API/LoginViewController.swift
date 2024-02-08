@@ -65,6 +65,7 @@ class LoginViewController: UIViewController {
         //navigationController?.pushViewController(tabBarController, animated: true)
         
         ///После перехода уже невозможно будет перейти назад на LoginViewController
+        ///(т.е. переназначить корневой контроллер приложения)
         guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let firstWindow = firstScene.windows.first else {
             return

@@ -9,12 +9,7 @@ import UIKit
 
 class FriendCell: UITableViewCell {
     
-    private let friendImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 25
-        imageView.backgroundColor = .purple
-        return imageView
-    }()
+    private let friendImageView = UIImageView(image: UIImage(systemName: "person"))
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -25,6 +20,7 @@ class FriendCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
         setupViews()
     }
     
