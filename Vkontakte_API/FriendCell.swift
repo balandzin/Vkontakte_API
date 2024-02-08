@@ -9,14 +9,14 @@ import UIKit
 
 class FriendCell: UITableViewCell {
     
-    let friendImageView: UIImageView = {
+    private let friendImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 25
         imageView.backgroundColor = .purple
         return imageView
     }()
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Name"
         return label
