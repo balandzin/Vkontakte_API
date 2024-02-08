@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
             button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
-
+    
     /// При нажатии на кнопку ВОЙТИ создается tabBarController, где каждый VC
     /// находится в NavigationController
     @objc private func enterAction() {

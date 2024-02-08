@@ -8,10 +8,15 @@
 import UIKit
 
 class FriendsViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Friends"
+        
+        view.backgroundColor = .white
+        tableView.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.barTintColor = .white
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

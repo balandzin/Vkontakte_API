@@ -27,18 +27,23 @@ class PhotoCell: UICollectionViewCell {
     }
     
     private func setupViews () {
-        addSubview (photoImageView)
+        addSubview(photoImageView)
         setupConstraints ()
     }
     
     private func setupConstraints() {
-        photoImageView.translatesAutoresizingMaskIntoConstraints=false
+        photoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            photoImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             photoImageView.topAnchor.constraint (equalTo: topAnchor),
             photoImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photoImageView.image = nil
     }
 }
