@@ -12,18 +12,34 @@ class PhotosViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "Photos"
+        
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "PhotoCell")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        6
     }
-    */
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "PhotoCell",
+            for: indexPath
+        ) as? PhotoCell else { return UICollectionViewCell() }
+        
+        return cell
+    }
+    
+}
 
+
+/// Задаем размеры фото относительно ширины экрана
+extension PhotosViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        CGSize(width: (view.frame.width / 2) - 10, height: 100)
+    }
 }

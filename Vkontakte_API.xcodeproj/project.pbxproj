@@ -16,7 +16,8 @@
 		D302C2592B73E2D1002C7B7E /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C2582B73E2D1002C7B7E /* GroupsViewController.swift */; };
 		D302C25B2B73E2E0002C7B7E /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C25A2B73E2E0002C7B7E /* PhotosViewController.swift */; };
 		D302C25D2B741DDD002C7B7E /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C25C2B741DDD002C7B7E /* FriendCell.swift */; };
-		D302C25F2B74E896002C7B7E /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C25E2B74E896002C7B7E /* GroupsCell.swift */; };
+		D302C25F2B74E896002C7B7E /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C25E2B74E896002C7B7E /* GroupCell.swift */; };
+		D302C2612B74EDE9002C7B7E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C2602B74EDE9002C7B7E /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		D302C2582B73E2D1002C7B7E /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		D302C25A2B73E2E0002C7B7E /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		D302C25C2B741DDD002C7B7E /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
-		D302C25E2B74E896002C7B7E /* GroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCell.swift; sourceTree = "<group>"; };
+		D302C25E2B74E896002C7B7E /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		D302C2602B74EDE9002C7B7E /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +72,9 @@
 				D302C2562B73E283002C7B7E /* FriendsViewController.swift */,
 				D302C25C2B741DDD002C7B7E /* FriendCell.swift */,
 				D302C2582B73E2D1002C7B7E /* GroupsViewController.swift */,
-				D302C25E2B74E896002C7B7E /* GroupsCell.swift */,
+				D302C25E2B74E896002C7B7E /* GroupCell.swift */,
 				D302C25A2B73E2E0002C7B7E /* PhotosViewController.swift */,
+				D302C2602B74EDE9002C7B7E /* PhotoCell.swift */,
 				D302C24B2B73D687002C7B7E /* Assets.xcassets */,
 				D302C24D2B73D687002C7B7E /* LaunchScreen.storyboard */,
 				D302C2502B73D687002C7B7E /* Info.plist */,
@@ -150,9 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D302C25D2B741DDD002C7B7E /* FriendCell.swift in Sources */,
+				D302C2612B74EDE9002C7B7E /* PhotoCell.swift in Sources */,
 				D302C2572B73E283002C7B7E /* FriendsViewController.swift in Sources */,
 				D302C2472B73D686002C7B7E /* LoginViewController.swift in Sources */,
-				D302C25F2B74E896002C7B7E /* GroupsCell.swift in Sources */,
+				D302C25F2B74E896002C7B7E /* GroupCell.swift in Sources */,
 				D302C2432B73D686002C7B7E /* AppDelegate.swift in Sources */,
 				D302C25B2B73E2E0002C7B7E /* PhotosViewController.swift in Sources */,
 				D302C2452B73D686002C7B7E /* SceneDelegate.swift in Sources */,

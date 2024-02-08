@@ -58,9 +58,9 @@ class LoginViewController: UIViewController {
         
         tabBarController.viewControllers = controllers
         
-        friendsViewController.tabBarItem = UITabBarItem(title: "Друзья", image: UIImage(systemName: "person.3.fill"), tag: 0)
-        groupsViewController.tabBarItem = UITabBarItem(title: "Группы", image: UIImage(systemName: "person.2.fill"), tag: 1)
-        photosViewController.tabBarItem = UITabBarItem(title: "Фото", image: UIImage(systemName: "photo"), tag: 2)
+        friendsViewController.tabBarItem = UITabBarItem(title: "Friends", image: UIImage(systemName: "person.3.fill"), tag: 0)
+        groupsViewController.tabBarItem = UITabBarItem(title: "Groups", image: UIImage(systemName: "person.2.fill"), tag: 1)
+        photosViewController.tabBarItem = UITabBarItem(title: "Photos", image: UIImage(systemName: "photo"), tag: 2)
         
         //navigationController?.pushViewController(tabBarController, animated: true)
         

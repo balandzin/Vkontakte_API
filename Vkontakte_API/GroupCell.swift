@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupsCell: UITableViewCell {
+class GroupCell: UITableViewCell {
     
     private let groupImageView: UIImageView = {
         let imageView = UIImageView()
