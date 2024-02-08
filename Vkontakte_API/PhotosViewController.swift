@@ -43,3 +43,5 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         CGSize(width: (view.frame.width / 2) - 10, height: 100)
     }
 }
+
+/// Проверка работоспособности веток
