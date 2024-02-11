@@ -6,45 +6,40 @@
 //
 
 import UIKit
+import WebKit
 
 class LoginViewController: UIViewController {
     
-    private let button: UIButton = {
-        let button = UIButton()
-        button.setTitle("Войти", for: .normal)
-        button.backgroundColor = .blue
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.gray, for: .highlighted)
-        return button
+    private lazy var webView: WKWebView = {
+        let webView = WKWebView(frame: view.bounds)
+        webView.navigationDelegate = self
+        return webView
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        view.addSubview(webView)
         setupViews()
         
-        button.addTarget(self, action: #selector(enterAction), for: .touchUpInside)
+        let url = URL(string: "https://oauth.vk.com/authorize?client_id=51726827&redirect_uri=https://oauth.vk.com/blank.html&scope=262150&display=mobile&response_type=token")
+        
+        guard let url = url else { return }
+        webView.load(URLRequest(url: url))
     }
     
     private func setupViews() {
-        view.addSubview(button)
         setupConstraints()
     }
     
     private func setupConstraints() {
-        button.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
-            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
-        ])
     }
     
     /// При нажатии на кнопку ВОЙТИ создается tabBarController, где каждый VC
     /// находится в NavigationController
-    @objc private func enterAction() {
+    private func enterAction() {
         let tabBarController = UITabBarController()
         
         let friendsViewController = UINavigationController(rootViewController: FriendsViewController())
@@ -72,6 +67,30 @@ class LoginViewController: UIViewController {
         }
         
         firstWindow.rootViewController = tabBarController
+    }
+}
+
+extension LoginViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment else {
+            decisionHandler(.allow)
+            return
+        }
+        let params = fragment
+            .components(separatedBy: "&")
+            .map { $0.components(separatedBy: "=") }
+            .reduce([String: String]()) { result, param in
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+            }
+        NetworkService.token = params["access_token"]!
+        NetworkService.userID = params["user_id"]!
+        decisionHandler(.cancel)
+        webView.removeFromSuperview()
+        enterAction()
     }
 }
 
