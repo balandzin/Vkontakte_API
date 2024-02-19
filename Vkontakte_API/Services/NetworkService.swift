@@ -9,12 +9,19 @@ import Foundation
 
 final class NetworkService {
     
-    private let session = URLSession.shared
+    static let shared = NetworkService()
     
     static var token = ""
     static var userID = ""
     
+    private let session = URLSession.shared
+    
+    private init() { }
+        
+
+    
     func getFriends(completion: @escaping ([Friend]) -> Void ) {
+        
         guard let url = URL(string: "https://api.vk.com/method/friends.get?fields=photo_50&access_token=\(NetworkService.token)&v=5.131") else {
             return
         }

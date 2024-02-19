@@ -78,14 +78,14 @@
 		D302C2412B73D686002C7B7E /* Vkontakte_API */ = {
 			isa = PBXGroup;
 			children = (
-				D302C27A2B78F2C7002C7B7E /* SupportingFiles */,
 				D302C2782B78F284002C7B7E /* ViewControllers */,
 				D302C27F2B78F685002C7B7E /* Models */,
 				D302C2792B78F2A5002C7B7E /* Views */,
 				D302C27E2B78F376002C7B7E /* Services */,
+				D302C27A2B78F2C7002C7B7E /* SupportingFiles */,
+				D302C27B2B78F346002C7B7E /* Sourse */,
 				D302C2622B74FDC1002C7B7E /* Constants.swift */,
 				D302C24D2B73D687002C7B7E /* LaunchScreen.storyboard */,
-				D302C27B2B78F346002C7B7E /* Sourse */,
 			);
 			path = Vkontakte_API;
 			sourceTree = "<group>";
