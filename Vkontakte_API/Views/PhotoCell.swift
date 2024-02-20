@@ -37,6 +37,7 @@ class PhotoCell: UICollectionViewCell {
         ])
     }
     
+    /// Данный метод переопределяется, если мы хотим переиспользовать ячейку
     override func prepareForReuse() {
         super.prepareForReuse()
         photoImageView.image = nil
