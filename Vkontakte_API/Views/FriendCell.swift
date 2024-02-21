@@ -28,6 +28,10 @@ class FriendCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateName(friend: Friend) {
+        nameLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")"
+    }
+    
     private func setupViews() {
         contentView.addSubview(friendImageView)
         contentView.addSubview(nameLabel)

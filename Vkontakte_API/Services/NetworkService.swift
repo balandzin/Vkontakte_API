@@ -33,7 +33,6 @@ final class NetworkService {
             do {
                 let friends = try JSONDecoder().decode(FriendsModel.self, from: data)
                 completion(friends.response.items)
-                print(friends)
             } catch {
                 print(error)
             }
