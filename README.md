@@ -10,6 +10,19 @@ Vkontakte_API - это надежное и удобное приложение, 
 - [x] Реализовать графическое оформление
 - [x] Реализовать логику приложения
 
+## Стек технологий
+- Архитектурный паттерн MVC
+- WKWebView
+- API Vkontakte
+- Многопоточность
+- Парсинг JSON
+
+## Скриншоты приложения
+<img width="492" alt="Снимок экрана 2024-02-21 в 22 29 25" src="https://github.com/balandzin/Vkontakte_API/assets/113136992/e0122f71-0000-4cac-a4c5-e852ae88c921">
+<img width="448" alt="Снимок экрана 2024-02-21 в 22 31 12" src="https://github.com/balandzin/Vkontakte_API/assets/113136992/434f80a2-40a4-4670-b283-19d5e4f6d0ad">
+<img width="492" alt="Снимок экрана 2024-02-21 в 22 31 42" src="https://github.com/balandzin/Vkontakte_API/assets/113136992/f780317e-ba10-4103-9b68-6240d3409577">
+<img width="492" alt="Снимок экрана 2024-02-21 в 22 32 06" src="https://github.com/balandzin/Vkontakte_API/assets/113136992/f208a5f2-d6d9-4f18-b28c-50511a2165b5">
+
 ## Команда проекта
 Чтобы связаться с разработчиком приложения, воспользуйтесь ссылкой на Telegram:
 
