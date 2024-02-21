@@ -9,7 +9,7 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
-    private let photoImageView = UIImageView(image: UIImage(systemName: "person"))
+    private let photoImageView = UIImageView()
     
     override init (frame: CGRect) {
         super.init (frame: frame)
@@ -19,6 +19,17 @@ class PhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError ("init (coder:) has not been implemented")
         
+    }
+    
+    func updateCell(photo: Photo) {
+        DispatchQueue.global().async {
+            if let url = URL(string: photo.sizes.first?.url ?? ""), let data = try? Data(contentsOf: url) {
+                
+                DispatchQueue.main.async {
+                    self.photoImageView.image = UIImage(data: data)
+                }
+            }
+        }
     }
     
     private func setupViews () {

@@ -9,7 +9,7 @@ import UIKit
 
 class FriendsViewController: UITableViewController {
     
-    private var friends: [Friend] = []
+    private var models: [Friend] = []
     
     private let networkService = NetworkService.shared
     
@@ -25,17 +25,16 @@ class FriendsViewController: UITableViewController {
         tableView.register(FriendCell.self, forCellReuseIdentifier: Constants.Identifier.friendCell)
         
         networkService.getFriends { [weak self] friends in
-            self?.friends = friends
+            self?.models = friends
             
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friends.count
+        models.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,8 +43,7 @@ class FriendsViewController: UITableViewController {
             for: indexPath
         ) as? FriendCell else { return UITableViewCell() }
         
-        cell.updateName(friend: friends[indexPath.row])
-        
+        cell.updateCell(friend: models[indexPath.row])
         return cell
     }
     

@@ -22,7 +22,7 @@ final class NetworkService {
     
     func getFriends(completion: @escaping ([Friend]) -> Void ) {
         
-        guard let url = URL(string: "https://api.vk.com/method/friends.get?fields=photo_50&access_token=\(NetworkService.token)&v=5.131") else {
+        guard let url = URL(string: "https://api.vk.com/method/friends.get?fields=photo_50, online&access_token=\(NetworkService.token)&v=5.131") else {
             return
         }
         
@@ -69,7 +69,6 @@ final class NetworkService {
             do {
                 let photos = try JSONDecoder().decode(PhotosModel.self, from: data)
                 completion(photos.response.items)
-                print(photos)
             } catch {
                 print(error)
             }

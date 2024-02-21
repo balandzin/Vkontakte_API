@@ -9,6 +9,9 @@ import UIKit
 
 class PhotosViewController: UICollectionViewController {
     
+    private let networkService = NetworkService.shared
+    private var models: [Photo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photos"
@@ -17,19 +20,28 @@ class PhotosViewController: UICollectionViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .white
         
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.Identifier.groupCell)
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.Identifier.photoCell)
+        
+        networkService.getPhotos { [weak self] photos in
+            self?.models = photos
+            
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        models.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Constants.Identifier.groupCell,
+            withReuseIdentifier: Constants.Identifier.photoCell,
             for: indexPath
         ) as? PhotoCell else { return UICollectionViewCell() }
         
+        cell.updateCell(photo: models[indexPath.row])
         return cell
     }
 }
@@ -45,7 +57,7 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         let width = UIScreen.main.bounds.width
         let cellSize = width / 2 - 20
-        return CGSize(width: cellSize, height: cellSize)
+        return CGSize(width: cellSize, height: cellSize - 30)
     }
 }
 

@@ -22,6 +22,7 @@ class GroupCell: UITableViewCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Description"
+        label.numberOfLines = 1
         label.textColor = .black
         return label
     }()
@@ -36,8 +37,18 @@ class GroupCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateName(group: Group) {
+    func updateCell(group: Group) {
         nameLabel.text = "\(group.name ?? "")"
+        descriptionLabel.text = group.description
+        
+        DispatchQueue.global().async {
+            if let url = URL(string: group.photo ?? ""), let data = try? Data(contentsOf: url) {
+                
+                DispatchQueue.main.async {
+                    self.groupImageView.image = UIImage(data: data)
+                }
+            }
+        }
     }
     
     private func setupViews() {
@@ -65,7 +76,7 @@ class GroupCell: UITableViewCell {
             
             descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            descriptionLabel.leadingAnchor.constraint(equalTo: groupImageView.trailingAnchor, constant: 16)
         ])
     }
-    
 }
