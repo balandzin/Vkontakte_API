@@ -22,7 +22,7 @@ class FriendsViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .white
         
-        tableView.register(FriendCell.self, forCellReuseIdentifier: Constants.Identifier.groupCell)
+        tableView.register(FriendCell.self, forCellReuseIdentifier: Constants.Identifier.friendCell)
         
         networkService.getFriends { [weak self] friends in
             self?.friends = friends
@@ -40,7 +40,7 @@ class FriendsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.Identifier.groupCell,
+            withIdentifier: Constants.Identifier.friendCell,
             for: indexPath
         ) as? FriendCell else { return UITableViewCell() }
         

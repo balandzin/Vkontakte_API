@@ -14,6 +14,7 @@ class GroupCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Name"
+        label.numberOfLines = 1
         label.textColor = .black
         return label
     }()
@@ -35,6 +36,10 @@ class GroupCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateName(group: Group) {
+        nameLabel.text = "\(group.name ?? "")"
+    }
+    
     private func setupViews() {
         contentView.addSubview(groupImageView)
         contentView.addSubview(nameLabel)
@@ -54,8 +59,9 @@ class GroupCell: UITableViewCell {
             groupImageView.widthAnchor.constraint(equalToConstant: 50),
             groupImageView.heightAnchor.constraint(equalToConstant: 50),
             
-            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: groupImageView.trailingAnchor, constant: 16),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),

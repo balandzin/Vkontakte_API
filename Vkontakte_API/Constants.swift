@@ -8,5 +8,6 @@
 struct Constants {
     enum Identifier {
         static let groupCell = "PhotoCell"
+        static let friendCell = "FriendCell"
     }
 }
