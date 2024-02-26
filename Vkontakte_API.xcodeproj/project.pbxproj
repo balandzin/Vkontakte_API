@@ -84,7 +84,6 @@
 				D302C27E2B78F376002C7B7E /* Services */,
 				D302C27A2B78F2C7002C7B7E /* SupportingFiles */,
 				D302C27B2B78F346002C7B7E /* Sourse */,
-				D302C2622B74FDC1002C7B7E /* Constants.swift */,
 				D302C24D2B73D687002C7B7E /* LaunchScreen.storyboard */,
 			);
 			path = Vkontakte_API;
@@ -124,6 +123,7 @@
 		D302C27B2B78F346002C7B7E /* Sourse */ = {
 			isa = PBXGroup;
 			children = (
+				D302C2622B74FDC1002C7B7E /* Constants.swift */,
 				D302C24B2B73D687002C7B7E /* Assets.xcassets */,
 			);
 			path = Sourse;
